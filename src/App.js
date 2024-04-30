@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
   fetchTasks = () => {
     axios
-      .get("http://chanchol2020.pythonanywhere.com/task/")
+      .get("https://personal-manager-ui9k.onrender.com/task/")
       .then((res) => {
         this.setState({ items: res.data });
       })
@@ -26,7 +26,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
     if (this.state.text.trim() !== "") { 
       const newTask = { task: this.state.text }; 
       axios
-        .post("http://chanchol2020.pythonanywhere.com/task/", newTask)
+        .post("https://personal-manager-ui9k.onrender.com/task/", newTask)
         .then((res) => {
           this.setState({ text: "" });
           this.fetchTasks();
@@ -47,7 +47,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
   handleDelete = (id) => {
     axios
-      .delete(`http://chanchol2020.pythonanywhere.com/task/${id}`)
+      .delete(`https://personal-manager-ui9k.onrender.com/task/${id}`)
       .then((res) => {
         this.fetchTasks();
       })
