@@ -5,7 +5,7 @@ html {
   background-color: rgb(21, 17, 17);
 }
 input[type="text"] {
-  color: white;
+  color: black;
 }
 input[type="text"]:focus {
  color:black;
