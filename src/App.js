@@ -12,25 +12,27 @@ class App extends Component {
   }
 
   fetchTasks = () => {
-    axios.get('http://127.0.0.1:8000/task/')
+    axios
+      .get("http://chanchol2020.pythonanywhere.com/task")
       .then((res) => {
         this.setState({ items: res.data });
       })
       .catch((error) => {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       });
   }
 
   addTask = () => {
     if (this.state.text.trim() !== "") { 
       const newTask = { task: this.state.text }; 
-      axios.post('http://127.0.0.1:8000/task/', newTask)
+      axios
+        .post("http://chanchol2020.pythonanywhere.com/task", newTask)
         .then((res) => {
-          this.setState({ text: '' }); 
-          this.fetchTasks(); 
+          this.setState({ text: "" });
+          this.fetchTasks();
         })
         .catch((error) => {
-          console.error('Error adding task:', error);
+          console.error("Error adding task:", error);
         });
     }
   }
@@ -44,12 +46,13 @@ class App extends Component {
   }
 
   handleDelete = (id) => {
-    axios.delete(`http://127.0.0.1:8000/task/${id}`)
+    axios
+      .delete(`http://chanchol2020.pythonanywhere.com/task/${id}`)
       .then((res) => {
-        this.fetchTasks(); 
+        this.fetchTasks();
       })
       .catch((error) => {
-        console.error('Error deleting task:', error);
+        console.error("Error deleting task:", error);
       });
   }
 
