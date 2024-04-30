@@ -5,7 +5,17 @@ import Task from './Task';
 import './App.css'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class App extends Component {
+const API_URL = "https://chanchol2020.pythonanywhere.com/task/";
+
+axios.get(API_URL)
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
+  
+  class App extends Component {
   state = {
     items: [],
     text: ""
