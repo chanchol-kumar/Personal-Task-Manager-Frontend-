@@ -13,7 +13,7 @@ class App extends Component {
 
   fetchTasks = () => {
     axios
-      .get("http://chanchol2020.pythonanywhere.com/task")
+      .get("http://chanchol2020.pythonanywhere.com/task/")
       .then((res) => {
         this.setState({ items: res.data });
       })
@@ -26,7 +26,7 @@ class App extends Component {
     if (this.state.text.trim() !== "") { 
       const newTask = { task: this.state.text }; 
       axios
-        .post("http://chanchol2020.pythonanywhere.com/task", newTask)
+        .post("http://chanchol2020.pythonanywhere.com/task/", newTask)
         .then((res) => {
           this.setState({ text: "" });
           this.fetchTasks();
